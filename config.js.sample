@@ -1,0 +1,24 @@
+/**
+ * Created by Ben on 2017. 01. 09..
+ */
+"use strict"
+
+const config = {
+    /**
+     * Transmission daemon host:port
+     */
+    transmissionHost:       'localhost:7001',
+    /**
+     * Ide fogja automatikusan letöltéseket elindítani
+     */
+    sorozatDownloadPath:    '/home/user/Downloads',
+    /**
+     * Ezekkel az adatokkal fog bejelentkezést megkísérelni nCore-ra ÉS transmission-daemon -ra
+     */
+    user: {
+        username: 'felhasználónév',
+        pass:     'jelszó'
+    }
+};
+
+modules.export = config;
