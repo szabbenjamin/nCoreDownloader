@@ -126,7 +126,7 @@ class ncore {
                 });
                 r.on('end', function() {
                     log('Letölt: ' + id);
-                    // self.addTransmission(filename);
+                    self.addTransmission(filename);
                     fs.writeFileSync('data/' + id, '');
                 });
                 setTimeout(() => {
