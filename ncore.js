@@ -18,6 +18,7 @@ class ncore {
     constructor (config) {
         this.config = config;
         this.elements = [];
+        this.key = '';
     }
 
     login (cb) {
@@ -60,6 +61,11 @@ class ncore {
                 }
             },
             function(error, response, body) {
+                if (self.key === '') {
+                    let downloadUrl = $(body).closest('link[rel="alternate"]').attr('href');
+                    self.key = decodeURIComponent(downloadUrl.match(/(\?|&)key\=([^&]*)/)[2]);
+                }
+
                 $(body).find('.torrent_konyvjelzo2').each(function() {
                     var numb = $(this).attr('onclick').match(/\d/g);
                     var id = numb.join('');
@@ -116,7 +122,7 @@ class ncore {
                 // log('Megvan: ' + id);
                 manager();
             } catch (e) {
-                var link = 'https://ncore.cc/torrents.php?action=download&id=' + id;
+                var link = 'https://ncore.cc/torrents.php?action=download&id=' + id + '&key=' + self.key;
                 var filename = 'torrents/' + id + '.torrent';
 
 
