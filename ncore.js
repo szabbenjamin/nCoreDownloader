@@ -57,6 +57,7 @@ class ncore {
                     'tipus': 'all_own',
                     'submit.x': 0,
                     'submit.y': 0,
+                    'submit': 'Ok',
                     'tags': ''
                 }
             },
@@ -66,6 +67,11 @@ class ncore {
                     self.key = decodeURIComponent(downloadUrl.match(/(\?|&)key\=([^&]*)/)[2]);
                 }
 
+                $(body).find('.torrent_konyvjelzo').each(function() {
+                    var numb = $(this).attr('onclick').match(/\d/g);
+                    var id = numb.join('');
+                    elements.push(id);
+                });
                 $(body).find('.torrent_konyvjelzo2').each(function() {
                     var numb = $(this).attr('onclick').match(/\d/g);
                     var id = numb.join('');
@@ -79,7 +85,7 @@ class ncore {
 
     download() {
         var self = this,
-            sorozatok = fs.readFileSync('sorozatok').toString().split('\r\n'),
+            sorozatok = fs.readFileSync('sorozatok').toString().split('\n'),
             allElements = [];
 
         this._folderInit();
@@ -132,7 +138,10 @@ class ncore {
                 });
                 r.on('end', function() {
                     log('Letölt: ' + id);
-                    self.addTransmission(filename);
+                    console.log(filename);
+                    if (config.transmissionEnable) {
+                      self.addTransmission(filename);
+                    }
                     fs.writeFileSync('data/' + id, '');
                 });
                 setTimeout(() => {
