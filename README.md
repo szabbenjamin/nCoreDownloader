@@ -2,6 +2,11 @@
 
 Az általad megadott lista alapján végigscanneli az oldalon található torrenteket, letölti és hozzáadja a transmission-daemon queue listába.
 
+**Frissítés esetén!**
+
+config.js-be told be a következőt:
+`transmissionEnable: true`
+
 **Telepítés:**
 
 Töltsd le és telepítsd a legújabb nodejs futtatókörnyezetet:
