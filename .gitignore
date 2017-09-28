@@ -7,6 +7,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+node_modules
 
 config.js
 download.sh

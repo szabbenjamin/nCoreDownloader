@@ -26,4 +26,4 @@ const config = {
     transmissionEnable: true
 };
 
-modules.export = config;
+module.exports = config;
