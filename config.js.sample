@@ -18,7 +18,12 @@ const config = {
     user: {
         username: 'felhasználónév',
         pass:     'jelszó'
-    }
+    },
+
+    /**
+     * történjen-e transmission hívás
+     */
+    transmissionEnable: true
 };
 
 modules.export = config;

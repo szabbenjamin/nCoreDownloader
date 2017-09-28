@@ -138,7 +138,6 @@ class ncore {
                 });
                 r.on('end', function() {
                     log('Letölt: ' + id);
-                    console.log(filename);
                     if (config.transmissionEnable) {
                       self.addTransmission(filename);
                     }
